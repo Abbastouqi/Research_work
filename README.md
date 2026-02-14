@@ -1,6 +1,6 @@
-﻿---
+---
 title: Urdu Emoji Predictor
-emoji: "🎯"
+emoji: 🎯
 colorFrom: blue
 colorTo: purple
 sdk: gradio
@@ -9,36 +9,41 @@ app_file: app.py
 pinned: false
 ---
 
-# Urdu Emoji Predictor
+# 🎯 Urdu Emoji Predictor
 
-A compact, fast model that predicts the most relevant emojis for Urdu text using semantic similarity.
+An AI-powered tool that predicts relevant emojis for Urdu text using machine learning and semantic similarity.
 
-## Live Demo
+## 🚀 Try It Out!
 
-Try the app on Hugging Face Spaces:
+Simply enter Urdu text and get the most relevant emojis instantly.
 
-- https://huggingface.co/spaces/abbasNoway/Urdu_Emoji_predictor
+## 🎯 Examples
 
-## Highlights
+- `میں بہت خوش ہوں` → 🎉 🎊 👌
+- `دل ٹوٹ گیا ہے` → 🌚 😞 💔  
+- `نیند آ رہی ہے` → 😴 😞 🌚
+- `دوستوں کے ساتھ پارٹی` → 🎉 😋 🎊
 
-- Urdu-first emoji prediction
-- Lightweight inference with precomputed emoji embeddings
-- Clean Gradio UI
+## 🔧 How It Works
 
-## Examples
+1. **Text Encoding**: Converts Urdu text to semantic embeddings using multilingual sentence transformers
+2. **Similarity Search**: Compares text embeddings with pre-computed emoji embeddings
+3. **Ranking**: Returns top emojis based on cosine similarity scores
 
-- "میں بہت خوش ہوں" -> 🎉 🎊 👌
-- "دل ٹوٹ گیا ہے" -> 😞 💔 🌙
-- "نیند آ رہی ہے" -> 😴 😞 🌙
-- "دوستوں کے ساتھ پارٹی" -> 🎉 😊 🎊
+## 🏗️ Technical Details
 
-## How It Works
+- **Model**: `sentence-transformers/paraphrase-multilingual-mpnet-base-v2`
+- **Emojis**: 80 most common emojis from Urdu social media
+- **Method**: Cosine similarity between text and emoji embeddings
+- **Framework**: Gradio + FastAPI
 
-1. Encode Urdu text with a multilingual sentence transformer.
-2. Compare against precomputed emoji vectors using cosine similarity.
-3. Return top-k emojis ranked by relevance.
+## 📊 Model Performance
 
-## Usage
+- **Top-1 Accuracy**: ~16%
+- **Top-3 Accuracy**: ~30%
+- **Trained on**: 800K+ Urdu text-emoji pairs
+
+## 🎮 Usage
 
 ```python
 from urdu_specific_embedding import UrduOptimizedPredictor
@@ -46,24 +51,3 @@ from urdu_specific_embedding import UrduOptimizedPredictor
 predictor = UrduOptimizedPredictor("models/urdu_optimized_model")
 predictions = predictor.predict_smart("میں بہت خوش ہوں", top_k=3)
 # Returns: [('🎉', 0.555), ('🎊', 0.537), ('👌', 0.439)]
-```
-
-## Run Locally
-
-```bash
-pip install -r requirements.txt
-python app.py
-```
-
-## Technical Details
-
-- Model: `sentence-transformers/paraphrase-multilingual-mpnet-base-v2`
-- Emojis: 80 frequent emojis from Urdu social media
-- Method: cosine similarity on text/emoji embeddings
-- Framework: Gradio + FastAPI
-
-## Performance
-
-- Top-1 Accuracy: ~16%
-- Top-3 Accuracy: ~30%
-- Trained on: 800K+ Urdu text-emoji pairs
