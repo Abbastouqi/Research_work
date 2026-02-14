@@ -13,8 +13,6 @@ pinned: false
 
 A compact, fast model that predicts the most relevant emojis for Urdu text using semantic similarity.
 
-![App preview](frame_0001_redesigned.png.jpeg)
-
 ## Live Demo
 
 Try the app on Hugging Face Spaces:
@@ -27,18 +25,18 @@ Try the app on Hugging Face Spaces:
 - Lightweight inference with precomputed emoji embeddings
 - Clean Gradio UI
 
-## How It Works
-
-1. Encode Urdu text with a multilingual sentence transformer.
-2. Compare against precomputed emoji vectors using cosine similarity.
-3. Return top-k emojis ranked by relevance.
-
 ## Examples
 
 - "میں بہت خوش ہوں" -> 🎉 🎊 👌
 - "دل ٹوٹ گیا ہے" -> 😞 💔 🌙
 - "نیند آ رہی ہے" -> 😴 😞 🌙
 - "دوستوں کے ساتھ پارٹی" -> 🎉 😊 🎊
+
+## How It Works
+
+1. Encode Urdu text with a multilingual sentence transformer.
+2. Compare against precomputed emoji vectors using cosine similarity.
+3. Return top-k emojis ranked by relevance.
 
 ## Usage
 
@@ -48,6 +46,13 @@ from urdu_specific_embedding import UrduOptimizedPredictor
 predictor = UrduOptimizedPredictor("models/urdu_optimized_model")
 predictions = predictor.predict_smart("میں بہت خوش ہوں", top_k=3)
 # Returns: [('🎉', 0.555), ('🎊', 0.537), ('👌', 0.439)]
+```
+
+## Run Locally
+
+```bash
+pip install -r requirements.txt
+python app.py
 ```
 
 ## Technical Details
@@ -62,10 +67,3 @@ predictions = predictor.predict_smart("میں بہت خوش ہوں", top_k=3)
 - Top-1 Accuracy: ~16%
 - Top-3 Accuracy: ~30%
 - Trained on: 800K+ Urdu text-emoji pairs
-
-## Run Locally
-
-```bash
-pip install -r requirements.txt
-python app.py
-```
