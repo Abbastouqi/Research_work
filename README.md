@@ -49,8 +49,7 @@ Read the full paper here:
 
 ## 📊 Model Performance
 
-- **Top-1 Accuracy**: ~16%
-- **Top-3 Accuracy**: ~30%
+- **Accuracy**: 72%
 - **Trained on**: 800K+ Urdu text-emoji pairs
 
 ## 🎮 Usage
